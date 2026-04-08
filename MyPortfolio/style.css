@@ -1,0 +1,343 @@
+/* 基础重置与全局设定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fbfbfb; 
+    color: #111111;
+    font-family: 'Inter', sans-serif; 
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden; 
+}
+
+.container {
+    width: 100%;
+}
+
+/* 单个项目的区块设置 */
+.project {
+    min-height: 100vh;
+    padding: 10vh 5vw;
+    margin-bottom: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 文字介绍部分 */
+.project-info {
+    max-width: 800px; 
+    width: 100%;
+    margin-bottom: 2.5vh; 
+}
+
+.project-number {
+    font-family: 'JetBrains Mono', monospace; 
+    font-size: 0.85rem;
+    color: #888;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.project-title {
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+}
+
+.project-meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.project-desc {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 300;
+}
+
+/* 中间插入的视频描述区域样式 */
+.video-description {
+    max-width: 800px; 
+    width: 100%;
+    text-align: left; 
+}
+
+.video-title {
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 2rem;
+    color: #111;
+    border-bottom: 1px solid #eaeaea; 
+    padding-bottom: 0.8rem;
+}
+
+/* 策略/结构化文本排版 */
+.strategy-block {
+    margin-top: 2.5rem;
+}
+
+.strategy-block h3 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #000;
+}
+
+.strategy-block p {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: #444;
+}
+
+.strategy-block strong {
+    font-weight: 500;
+    color: #111;
+}
+
+/* 核心算法流程的极简特殊排版 */
+.algo-block {
+    background-color: #f2f2f2;
+    padding: 1.5rem;
+    border-radius: 4px;
+}
+
+.algorithm-flow {
+    font-family: 'JetBrains Mono', monospace; 
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    color: #555;
+    word-break: break-all;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    text-decoration: none;
+    color: #111;
+    border-bottom: 1px solid #111;
+    padding-bottom: 2px;
+    font-size: 0.9rem;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.project-link:hover {
+    color: #888;
+    border-color: #888;
+}
+
+/* 媒体画廊（图片与视频排列） */
+.project-media {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    gap: 8vh; 
+    align-items: center;
+}
+
+.media-item {
+    width: 100%;
+    max-width: 900px; 
+    height: auto;
+    display: block;
+}
+
+/* ========================================================
+   全尺寸影院级视频播放
+   ======================================================== */
+video.media-item {
+    width: 100vw !important; 
+    max-width: 100vw !important; 
+    height: 100vh; 
+    object-fit: cover; 
+    position: relative;
+    left: 0%;
+    transform: translateX(0%);
+}
+
+/* ========================================================
+   第一个项目专属的双栏画板布局 (非对称：左大，右标准)
+   ======================================================== */
+.p1-custom-layout {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr; 
+    gap: 8vw; 
+    width: 100%;
+    max-width: 1100px; 
+    margin: 0 auto; 
+}
+
+.p1-left-col, .p1-right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4vw; 
+    justify-content: center; 
+}
+
+.p1-custom-layout .media-item {
+    max-width: 100%; 
+}
+
+/* ========================================================
+   第二个项目专属的图片网格排版 (两列三行)
+   ======================================================== */
+.p2-custom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 4vw; 
+    width: 100%;
+    max-width: 1100px; 
+    margin: 0 auto; 
+}
+
+.p2-custom-grid .media-item {
+    max-width: 100%; 
+}
+
+/* ========================================================
+   第三个项目专属的交错图文列表 (Feature List)
+   ======================================================== */
+.p3-feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8vh; 
+    width: 100%;
+    max-width: 1100px; 
+    margin: 0 auto;
+}
+
+.p3-feature-item {
+    display: flex;
+    align-items: center; 
+    gap: 5vw; 
+}
+
+.p3-feature-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.p3-img-container {
+    flex: 1.5; 
+}
+
+.p3-img-container .media-item {
+    border-radius: 4px; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05); 
+}
+
+.p3-text-container {
+    flex: 1; 
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #444;
+    line-height: 1.7;
+}
+
+.p3-text-container strong {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #111;
+    margin-bottom: 0.8rem;
+}
+
+/* ========================================================
+   第四个项目专属的网格排版 (上左右两张，下方一张大图)
+   ======================================================== */
+.p4-custom-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 4vw; 
+    width: 100%;
+    max-width: 1100px; 
+    margin: 0 auto;
+}
+
+.p4-custom-layout .media-item {
+    max-width: 100%; 
+}
+
+.p4-img-top {
+    width: 100%;
+    height: auto;
+    align-self: center; 
+}
+
+.p4-img-bottom {
+    grid-column: 1 / -1; 
+    width: 100%;
+    height: auto;
+}
+
+/* ========================================================
+   👈 【新增】第七个项目专属的 杂志散落排版 (Editorial Scatter)
+   ======================================================== */
+.p7-scatter-gallery {
+    display: grid;
+    /* 创建一个极高自由度的 12 列隐形网格 */
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2vw;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start; /* 让图片按照自己的高度显示，不被拉伸 */
+}
+
+/* 覆盖全局的 max-width 限制，让它们能在网格里自由铺开 */
+.p7-scatter-gallery .media-item {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.05); /* 添加极其轻微的艺术悬浮阴影 */
+}
+
+/* 分别控制每一张图的起始列、跨度列，以及强制的上下偏移量制造散落感 */
+.p7-item-1 { grid-column: 1 / 7; }                               /* 占据左侧一半 */
+.p7-item-2 { grid-column: 9 / 13; margin-top: 15vh; }            /* 挤在右侧边缘，往下偏移 */
+.p7-item-3 { grid-column: 3 / 11; margin-top: 12vh; }            /* 占据中心大幅面，大幅往下制造留白 */
+.p7-item-4 { grid-column: 1 / 6; margin-top: 5vh; }              /* 左下角小幅面 */
+.p7-item-5 { grid-column: 7 / 13; margin-top: -8vh; }            /* 右下角大幅面，往上提拉交错 */
+
+/* 移动端响应式 */
+@media (max-width: 800px) {
+    .p1-custom-layout,
+    .p2-custom-grid,
+    .p4-custom-layout { 
+        grid-template-columns: 1fr; 
+        gap: 5vh; 
+    }
+    
+    .p4-img-bottom {
+        grid-column: 1; 
+    }
+    
+    .p3-feature-item,
+    .p3-feature-item:nth-child(even) {
+        flex-direction: column;
+        text-align: left;
+    }
+    
+    video.media-item {
+        height: auto; 
+    }
+
+    /* 手机上看的时候散落排版太挤了，让它变回干净的垂直排列 */
+    .p7-scatter-gallery {
+        grid-template-columns: 1fr;
+        gap: 6vh;
+    }
+    .p7-item-1, .p7-item-2, .p7-item-3, .p7-item-4, .p7-item-5 {
+        grid-column: 1;
+        margin-top: 0; 
+    }
+}
